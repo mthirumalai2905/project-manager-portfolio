@@ -1,0 +1,159 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: Nunito, ui-sans-serif, system-ui, sans-serif;
+  --color-accent: #8c3b24;
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: light;
+  background-color: #d7d7d7;
+}
+
+html.dark {
+  color-scheme: dark;
+  background-color: #2a2a2a;
+}
+
+body {
+  background-color: transparent;
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.045) 1px, transparent 1px);
+  background-size: 22px 22px;
+  background-attachment: fixed;
+}
+
+html.dark body {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+}
+
+.hand {
+  font-family: var(--font-caveat), "Segoe Print", cursive;
+}
+
+.skill-bounce {
+  transition: transform 0.34s cubic-bezier(0.34, 1.7, 0.64, 1);
+}
+
+.skill-bounce:hover {
+  transform: translateY(-6px) scale(1.08);
+}
+
+.skill-bounce:active {
+  transform: translateY(2px) scale(0.9);
+  transition-duration: 0.08s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skill-bounce,
+  .skill-bounce:hover,
+  .skill-bounce:active {
+    transform: none;
+    transition: none;
+  }
+}
+
+.script {
+  font-family: var(--font-script), "Segoe Script", cursive;
+}
+
+.notebook-sheet {
+  position: relative;
+  background-color: #fffdf8;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent 31px,
+    rgba(176, 196, 216, 0.55) 32px
+  );
+  background-attachment: local;
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, 0.12),
+    0 2px 0 rgba(255, 255, 255, 0.7) inset;
+}
+
+.notebook-sheet::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0.7rem;
+  width: 2px;
+  background: rgba(226, 96, 108, 0.45);
+  pointer-events: none;
+}
+
+@media (min-width: 640px) {
+  .notebook-sheet::before {
+    left: 2.25rem;
+  }
+}
+
+html.dark .notebook-sheet {
+  background-color: #1e1c1a;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent 31px,
+    rgba(255, 255, 255, 0.06) 32px
+  );
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+}
+
+html.dark .notebook-sheet::before {
+  background: rgba(226, 96, 108, 0.35);
+}
+
+.tape {
+  position: absolute;
+  z-index: 2;
+  height: 1.15rem;
+  width: 4.4rem;
+  background: rgba(255, 248, 214, 0.72);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+  pointer-events: none;
+}
+
+html.dark .tape {
+  background: rgba(255, 236, 180, 0.28);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+:focus-visible {
+  outline: 2px solid #1a1a1a;
+  outline-offset: 3px;
+}
+
+html.dark :focus-visible {
+  outline-color: #f6f1ea;
+}
+
+@keyframes indeterminate {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(400%);
+  }
+}
+
+.indeterminate-bar {
+  animation: indeterminate 1.2s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .indeterminate-bar {
+    animation: none;
+  }
+}
