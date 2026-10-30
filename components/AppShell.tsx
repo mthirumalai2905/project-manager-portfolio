@@ -66,7 +66,7 @@ function ShellFrame({ children }: { children: ReactNode }) {
   }
 
   return (
-    <div className="relative z-10 min-h-screen px-3 py-4 sm:px-6 sm:py-8">
+    <div className="relative z-10 min-h-screen">
       <a
         href="/#work"
         className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-full focus:bg-zinc-900 focus:px-3 focus:py-2 focus:text-white"
@@ -76,18 +76,12 @@ function ShellFrame({ children }: { children: ReactNode }) {
       {menuOpen ? (
         <button type="button" aria-label="Close menu" className="fixed inset-0 z-30 bg-zinc-950/30 md:hidden" onClick={() => setMenuOpen(false)} />
       ) : null}
-      <div className="notebook-sheet mx-auto min-h-[calc(100vh-2rem)] max-w-6xl rounded-[22px] px-5 py-5 sm:px-14 sm:py-7">
-        <img
-          src="/paperclip.jpg"
-          alt=""
-          aria-hidden="true"
-          className="pointer-events-none absolute top-1 left-1 z-30 h-12 w-12 -rotate-12 mix-blend-multiply select-none sm:left-2 sm:h-14 sm:w-14 dark:mix-blend-screen dark:invert"
-        />
-        <header className="relative z-20 flex flex-wrap items-center gap-3">
+      <div className="notebook-sheet mx-auto min-h-screen px-5 py-5 sm:px-14 sm:py-7">
+        <header className={cn("relative flex flex-wrap items-center gap-3", menuOpen ? "z-40" : "z-20")}>
           <button
             id="menuBtn"
             type="button"
-            className="hand inline-flex items-center gap-1 text-xl md:hidden"
+            className="hand inline-flex min-h-11 items-center gap-1 px-1 text-xl md:hidden"
             aria-expanded={menuOpen}
             aria-controls="menu"
             onClick={() => setMenuOpen(!menuOpen)}
@@ -99,8 +93,10 @@ function ShellFrame({ children }: { children: ReactNode }) {
             id="menu"
             aria-label="Primary"
             className={cn(
-              "items-center gap-x-5 gap-y-2 text-sm font-semibold tracking-[0.14em] uppercase",
-              menuOpen ? "flex w-full flex-col items-start rounded-2xl bg-white/80 p-4 shadow-md md:w-auto md:flex-row md:bg-transparent md:p-0 md:shadow-none" : "hidden md:flex",
+              "items-center gap-x-5 gap-y-1 text-sm font-semibold tracking-[0.14em] uppercase",
+              menuOpen
+                ? "flex w-full flex-col items-stretch rounded-2xl border border-black/10 bg-[#fffdf8] p-2 shadow-md dark:border-white/10 dark:bg-[#2a2724] md:w-auto md:flex-row md:items-center md:border-0 md:bg-transparent md:p-0 md:shadow-none"
+                : "hidden md:flex",
             )}
           >
             {links.map((item) => (
@@ -108,8 +104,9 @@ function ShellFrame({ children }: { children: ReactNode }) {
                 key={item.href}
                 href={item.href}
                 aria-current={isActive(pathname, item.href) ? "page" : undefined}
+                onClick={() => setMenuOpen(false)}
                 className={cn(
-                  "hover:text-zinc-950 dark:hover:text-white",
+                  "rounded-xl px-3 py-3 hover:bg-black/5 hover:text-zinc-950 md:px-0 md:py-0 md:hover:bg-transparent dark:hover:bg-white/10 dark:hover:text-white",
                   isActive(pathname, item.href) ? "underline decoration-2 underline-offset-4" : "text-zinc-600 dark:text-zinc-300",
                 )}
               >
