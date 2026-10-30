@@ -23,14 +23,14 @@ export type ExperienceItem = {
 
 export const experience: ExperienceItem[] = [
   {
-    slug: "windows",
-    linkLabel: "Windows & Doors",
-    kicker: "Trusted Home Reports · San Francisco · May 2025 – Present",
-    title: "Windows & Doors.",
-    role: "Project Manager & Partnerships Manager — Home improvement",
+    slug: "project-manager",
+    linkLabel: "Project Manager",
+    kicker: "Trusted Home Reports · San Francisco · August 2023 – Present",
+    title: "Project Manager.",
+    role: "Project Manager",
     company: "Trusted Home Reports",
     location: "San Francisco",
-    dates: "May 2025 – Present",
+    dates: "August 2023 – Present",
     status: "in-progress",
     fact: "$130K approximate profit from a line built through partner development, partner acquisition, and lead generation.",
     summary:
@@ -83,7 +83,7 @@ export const experience: ExperienceItem[] = [
     // TODO: add content — this chapter has no separate outcome line.
     fact: null,
     summary:
-      "This is the thread that started in 2023, before the Windows & Doors line and the AI role. Customer acquisition with internal teams and outside partners, in service of the same business.",
+      "Customer acquisition with internal teams and outside partners, in service of the same business.",
     responsibilities: [
       "Coordinate campaign and offer launches. Align deliverables, track performance, and follow up when something in the execution slips.",
       "Run partner onboarding, performance reporting, and the ongoing conversation that keeps operations smooth.",
@@ -97,7 +97,7 @@ export const experience: ExperienceItem[] = [
     slug: "advertics",
     linkLabel: "Adverticssoft",
     kicker: "Adverticssoft IT Systems · Pune · August 2020 – July 2023",
-    title: "SaaS and affiliate delivery.",
+    title: "Project Manager / SaaS and affiliate delivery.",
     role: "Affiliate Manager / Project Manager",
     company: "Adverticssoft IT Systems",
     location: "Pune",

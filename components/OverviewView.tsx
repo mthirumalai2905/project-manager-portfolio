@@ -18,7 +18,7 @@ const rotations = ["-rotate-1", "rotate-1", "-rotate-2", "rotate-[1.5deg]", "-ro
 export function OverviewView({ portrait = false }: { portrait?: boolean }) {
   const { query } = useShell()
   const years = about.facts.find((fact) => fact.term === "Experience")
-  const windows = experience.find((item) => item.slug === "windows")
+  const windows = experience.find((item) => item.slug === "project-manager")
   const calls = experience.find((item) => item.slug === "ai")
   const clients = experience.find((item) => item.slug === "mirror")
   const stats = [
