@@ -115,7 +115,7 @@ export function OverviewView({ portrait = false }: { portrait?: boolean }) {
                 kicker={item.dates}
                 label={item.linkLabel}
                 title={item.title}
-                text={item.fact ?? item.summary ?? item.role}
+                text={item.summary ?? item.fact ?? item.role}
                 rotate={rotations[index % rotations.length]}
               />
             ))}
